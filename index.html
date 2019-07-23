@@ -18,6 +18,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
 
     <style>
+        html, body{
+            background-color: black;
+            color: white;
+        }
         #nav{
             background-color: black !important;
             font-family: sans-serif;
@@ -31,20 +35,9 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        /*#send {
-            background-color: white;
-            border-color: white;
-            color: black
-        }
-        #contact-form {
-            color: white;
-        }*/
         .fit-image{
             height: 100%;
             width: 100%;
-        }
-        #portfolio{
-             background-color: white;
         }
         #my-grid{
             margin-top: 50px;
@@ -126,6 +119,23 @@
           right: 0;
           border-radius: 3px 0 0 3px;
         }
+        #send{
+            background: #000;
+            border-color: #fff;
+        }
+        
+        ::-webkit-scrollbar{
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background: #fff;
+            border: 1.5px solid #000;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: #000;
+        }
     </style>
 </head>
 
@@ -149,7 +159,7 @@
                         <a href="#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#live" class="nav-link">Live</a>
+                        <a href="#twitch" class="nav-link">Live</a>
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link">Contact</a>
@@ -159,12 +169,15 @@
         </div>
     </nav>
 
+
     <div>
         <div class="contanier-fluid">
             <img class="d-block w-100" src="Images/me2.jpg" style="max-height: 650px;width: 60%; margin: auto" alt="Second slide">
         </div>
+        
         <!--Gallery-->
         <section class="section-padding" id="gallery">
+            <br><br>
             <div class="container">
                 <div class="container">
                     <div id="my-grid" class="grid-padding">
@@ -274,15 +287,15 @@
             
                 </div>
             </div>
-            </secton>
+        </section>
+    </div>
 
 <br>
-<br>
-<br>
+
 
         <!--About-->
        <section id="about">
-<br>
+<br><br><br>
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
@@ -296,13 +309,10 @@
                 </div>
             </div>
         </section>
-<br>
-<br>
 
         <!--Twitch-->
         <section id="twitch">
-<br>
-<br>
+<br><br><br><br>
             <div class="container-fluid">
                 <div id="twitch-embed"></div>
                 <script src="https://embed.twitch.tv/embed/v1.js"></script>
@@ -317,7 +327,6 @@
                     });
                 </script>
             </div>
-            </div>
         </section>
 
 <br>
@@ -327,9 +336,8 @@
 
         <!--Contact-->
     <section id="contact">
-        <div id="contact"></div>
         <div class="container">
-            <div class="row">
+                        <div class="row">
                 <div class="col-xl-8 offset-xl-2 py-5">
                     <!-- We're going to place the form here -->
                     <form id="contact-form" method="post" action="contact.php" role="form">
