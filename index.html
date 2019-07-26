@@ -18,10 +18,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
 
     <style>
-        html, body{
+        body{
             background-color: black;
             color: white;
         }
+         /* Navbar Styling */
         #nav{
             background-color: black !important;
             font-family: sans-serif;
@@ -35,6 +36,8 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        
+        /* Gallery Styling */
         .fit-image{
             height: 100%;
             width: 100%;
@@ -81,18 +84,17 @@
           text-align: center;
         }
         .portrait-image{
-          height: 98vh;
+          height: 95vh;
         }
         .landscape-image{
           width: 76vw;
         }
         .close{
-          color: #fff;
+          color: white;
           position: absolute;
-          top: 50px;
-          right: 25px;
+          top: 7%;
+          right: 0%;
           font-size: 48px;
-          font-weight: bold;
           transition: 0.3s ease;
         }
         .close:hover, .close:focus{
@@ -105,7 +107,7 @@
           position: absolute;
           top: 50%;
           width: auto;
-          padding: 16px
+          padding: 16px;
           margin-top: -50px;
           color: #fff !important;
           font-weight: bold;
@@ -119,11 +121,17 @@
           right: 0;
           border-radius: 3px 0 0 3px;
         }
+        .next:hover, .prev:hover{
+            background-color: grey;
+        }
+        
+        /* Contact Styling */
         #send{
             background: #000;
             border-color: #fff;
         }
         
+        /* Scrollbar Styling */
         ::-webkit-scrollbar{
             width: 10px;
             height: 10px;
@@ -136,11 +144,21 @@
         ::-webkit-scrollbar-track{
             background-color: #000;
         }
+        
+        /* Body Color Button Styling */
+        #light{
+            background: transparent;
+            color: grey;
+            border: none;
+            outline: none;
+            right: 50%;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 
-<body>
+<body id="body">
     <nav id="nav" class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" data-toggle="afix">
         <div id="main" class="mx-auto d-sm-flex d-block flex-sm-nowrap">
             <a href="#" class="navbar-brand">BatskyStarman</a>
@@ -164,6 +182,7 @@
                     <li class="nav-item">
                         <a href="#contact" class="nav-link">Contact</a>
                     </li>
+                    <button onclick="changeColor(); changeColo(); light();" id="light">Light</button>
                 </ul>
             </div>
         </div>
@@ -212,7 +231,7 @@
 
 
             <div id="my-modal" class="modal">
-                <span class="close" onclick="closeModal()">&times;</span>
+                <span class="close" onclick="closeModal();">&times;</span>
                 <div class="modal-content">
                     <div class="my-slides">
                         <div class="numbertext">1/12</div>
@@ -282,8 +301,8 @@
                     </div>
 
                 <!-- Next and Previous buttons -->
-                    <a class="prev" onclick="changeSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="changeSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="changeSlides(-1);">&#10094;</a>
+                    <a class="next" onclick="changeSlides(1);">&#10095;</a>
             
                 </div>
             </div>
@@ -308,7 +327,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>  
 
         <!--Twitch-->
         <section id="twitch">
@@ -346,14 +365,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_name">Firstname *</label>
+                                        <label for="form_name">Firstname </label>
                                         <input id="form_name" type="text" name="name" class="form-control" placeholder="" required="required" data-error="Firstname is required.">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_lastname">Lastname *</label>
+                                        <label for="form_lastname">Lastname </label>
                                         <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="" required="required" data-error="Lastname is required.">
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -362,14 +381,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_email">Email *</label>
+                                        <label for="form_email">Email </label>
                                         <input id="form_email" type="email" name="email" class="form-control" placeholder="" required="required" data-error="Valid email is required.">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_need">Please specify your need *</label>
+                                        <label for="form_need">Please specify your need </label>
                                         <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
                                             <option value=""></option>
                                             <option value="Request quotation">Request Quotation</option>
@@ -383,7 +402,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="form_message">Message *</label>
+                                        <label for="form_message">Message </label>
                                         <textarea id="form_message" name="message" class="form-control" placeholder="" rows="4" required="required" data-error="Please, leave us a message."></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -433,6 +452,43 @@
 
                 slidesJS[slideIndexJS-1].style.display = "block";
             }
+            
+            
+            var colors = ["white", "black"];
+                var colorIndex = 0;
+                function changeColor() {
+                    var col = document.getElementById("body");
+                    var y = document.getElementById("send");
+                    if( colorIndex >= colors.length ) {
+                        colorIndex = 0;
+                        }
+                        col.style.backgroundColor = colors[colorIndex];
+                        y.style.backgroundColor = colors[colorIndex];
+                        colorIndex++;
+                        }
+            var color = ["black", "white"];
+                var colorInde = 0;
+                function changeColo() {
+                    var con = document.getElementById("body");
+                    var x = document.getElementById("send");
+                    if( colorInde >= colors.length ) {
+                        colorInde = 0;
+                        }
+                        con.style.color = color[colorInde];
+                        x.style.color = color[colorInde];
+                        x.style.borderColor = color[colorInde];
+                        colorInde++;
+                        }
+            var chosen = ["white", "grey"];
+                var choice = 0;
+                function light() {
+                    var a = document.getElementById("light");
+                    if( choice >= chosen.length ) {
+                        choice = 0;
+                        }
+                        a.style.color = chosen[choice];
+                        choice++;
+                        }
 
         </script>
 </body>
